@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+    </script>
+</head>
+<body>
+    <div data-role="page" id="menu">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Menu Page</h1>
+        </header>
+        <content>
+            <br>
+            <a href="#state" data-role="button" data-theme="a">クリア状況確認</a>
+            <br>
+            <a href="#titleConf" data-role="button" data-theme="a">タイトルの設定</a>
+            <br>
+            <a href="#question" data-role="button" data-theme="a">問題確認</a>
+            <br>
+            <a href="#start" data-role="button" data-theme="a">スタンプラリー開始管理</a>
+            <br>
+            <a href="#ranking" data-role="button" data-theme="a">順位設定</a>
+            <br>
+            <div data-role="collapsible" data-theme="a">
+            <h4>現在の設定を確認</h4>
+            <table data-role="table" id="nowStateTable" data-mode="reflow">
+                <thead>
+                    <tr>
+                        <th>タイトル</th>
+                        <th>開始状況</th>
+                        <th>時刻での開始</th>
+                        <th>開始時間</th>
+                        <th>時刻での終了</th>
+                        <th>終了時間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                	    <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+            	    </tr>
+                </tbody>
+            </table>
+            </div>
+        </content>
+        
+    </div>
+    
+    <div data-role="page" id="state">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>State Page</h1>
+        </header>
+        <content>
+            <a href="#" id="getTotal" data-role="button" data-inline="false" data-theme="b">Refresh</a>
+            <a href="#" id="reset" data-role="button" data-theme="b">クリア人数 リセット</a>
+            <br>
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題1</li>
+                <li id="total1"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題2</li>
+                <li id="total2"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題3</li>
+                <li id="total3"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題4</li>
+                <li id="total4"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題5</li>
+                <li id="total5"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題6</li>
+                <li id="total6"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題7</li>
+                <li id="total7"></li>
+            </ul>
+        </content>
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+    
+    <!-- Change Question Page -->
+    <div data-role="page" id="titleConf">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>タイトル設定</h1>
+        </header>
+        <content>
+            <br>
+            現在のタイトル
+            <h3 id="titleOld"></h3>
+            <br>
+            新しいタイトル：
+            <input type="text" id="titleNew">
+            <a href="#" id="titleChange" data-role="button" data-theme="a">タイトルを変更する</a>
+        </content>
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+
+    <!-- Question Page -->    
+    <div data-role="page" id="question">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Question</h1>
+        </header>
+        <content>
+            <a href="#" id="refresh_question" data-role="button" data-theme="b">現在の問題を確認</a>
+            <a href="#changeQ" data-role="button" data-theme="b">問題を変更する</a>
+            <br>
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題1</li>
+                <li id="question1"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題2</li>
+                <li id="question2"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題3</li>
+                <li id="question3"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題4</li>
+                <li id="question4"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題5</li>
+                <li id="question5"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題6</li>
+                <li id="question6"></li>
+            </ul>
+            
+            <ul data-role="listview" data-divider-theme="b">
+                <li data-role="list-divider">問題7</li>
+                <li id="question7"></li>
+            </ul>
+        </content>
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+    
+    <!-- Change Question Page -->
+    <div data-role="page" id="changeQ">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Change Question</h1>
+        </header>
+        <content>
+            <br>
+            <label for="selectQ" class="select">変更する問題を選択:</label>
+                <select name="selectQ" id="selectQ" data-native-menu="false" data-mini="true" data-inline="true">
+                    <option value="0">Select Question</option>
+                    <option value="1">問題1</option>
+                    <option value="2">問題2</option>
+                    <option value="3">問題3</option>
+                    <option value="4">問題4</option>
+                    <option value="5">問題5</option>
+                    <option value="6">問題6</option>
+                    <option value="7">問題7</option>
+                </select>
+            変更前の問題文
+            <h3 id="oldSentence"></h3>
+            新しい問題文：
+            <input type="text" id="sentenceQ">
+            <br>
+            <a href="#" id="change" data-role="button" data-theme="a">変更を確定</a>
+            <br>
+            <a href="#" id="changeGPS" data-role="button" data-theme="a">現在位置を設定</a>
+        </content>
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <a href="#" data-rel="back" data-icon="back">Back</a>
+        </footer>
+    </div>
+    
+    <!-- Start Page -->
+    <div data-role="page" id="start">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>Start Config</h1>
+        </header>
+        <content>
+            <br>
+            <a href="#" id="startstop" data-role="button" data-theme="a">スタンプラリーの開始/停止</a>
+            スタンプラリーの開始状況
+            <h3 id="stampState"></h3>
+            <div data-role="collapsible">
+                <h4>スタンプラリー開始時刻設定</h4>
+                <form>
+                    <label for="startTimeFlip">スタンプラリー開始時刻設定</label>
+                    <select name="startTimeFlip" id="startTimeFlip" data-role="slider">
+                      <option value="0">Off</option>
+                      <option value="1">On</option>
+                    </select>
+                </form>
+                <a href="#" id="startTimeOn" data-role="button" data-theme="a">開始時刻の設定</a>
+                <input type="text" id="startTime" class="timepicker"/>
+            </div>
+            <br><br><br><br><br>
+            <div data-role="collapsible">
+                <h4>スタンプラリー終了時刻設定</h4>
+                <form>
+                    <label for="stopTimeFlip">スタンプラリー終了時刻設定</label>
+                    <select name="stopTimeFlip" id="stopTimeFlip" data-role="slider">
+                      <option value="0">Off</option>
+                      <option value="1">On</option>
+                    </select>
+                </form>
+                <a href="#" id="stopTimeOn" data-role="button" data-theme="a">終了時刻の設定</a>
+                <input type="text" id="stopTime" class="timepicker"/>
+            </div>
+        </content>
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+    
+    <!-- Ranking Page -->
+    <div data-role="page" id="ranking">
+        <header data-role="header" data-position="fixed" data-theme="a">
+            <br>
+            <h1>順位設定</h1>
+        </header>
+        <content>
+            <br>
+            <form>
+                <label for="rankonoff">ランキングモード設定</label>
+                <select name="rankonoff" id="rankonoff" data-role="slider">
+                  <option value="0">Off</option>
+                  <option value="1">On</option>
+                </select>
+            </form>
+            <br>
+            現在確定している順位
+            <h3 id="nowRank"></h3>
+        </content>
+        <footer data-role="footer" data-position="fixed" data-theme="a">
+            <a href="#" data-rel="back" data-icon="home">Menu</a>
+        </footer>
+    </div>
+</body>
+</html>
